@@ -30,6 +30,7 @@ WORKDIR /data
 CMD ["/elasticsearch/bin/elasticsearch"]
 
 RUN \
+  mkdir /plugins && \
   /elasticsearch/bin/plugin -install lmenezes/elasticsearch-kopf/master && \
   /elasticsearch/bin/plugin -install mobz/elasticsearch-head && \
   /elasticsearch/bin/plugin -install Koka/elastic-hammer && \
