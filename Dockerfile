@@ -29,6 +29,13 @@ WORKDIR /data
 # Define default command.
 CMD ["/elasticsearch/bin/elasticsearch"]
 
+RUN \
+  /elasticsearch/bin/plugin -install lmenezes/elasticsearch-kopf/master && \
+  /elasticsearch/bin/plugin -install mobz/elasticsearch-head && \
+  /elasticsearch/bin/plugin -install Koka/elastic-hammer && \
+  /elasticsearch/bin/plugin -install lukas-vlcek/bigdesk && \
+  /elasticsearch/bin/plugin -install com.yakaz.elasticsearch.plugins/elasticsearch-action-updatebyquery/2.4.0
+
 # Expose ports.
 #   - 9200: HTTP
 #   - 9300: transport
